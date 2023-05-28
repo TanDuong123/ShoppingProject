@@ -13,15 +13,18 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="BillDetails")
+@Table(name="BillDetails", uniqueConstraints = {
+		@UniqueConstraint(columnNames = {"BillId","ProductId"})
+})
 public class BillDetail implements Serializable{
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer BillDetailId;
+	Long BillDetailId;
 	@ManyToOne @JoinColumn(name="BillId")
 	Bill BillDetail;
 	@ManyToOne @JoinColumn(name="ProductId")

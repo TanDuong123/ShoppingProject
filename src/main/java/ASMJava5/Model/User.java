@@ -14,9 +14,10 @@ import lombok.Data;
 @Table(name="Users")
 public class User implements Serializable{
 	@Id
-	String UserId;
+	String UserName;
 	String Password;
 	Boolean Role;
+	Boolean Activated;
 	String Image;
 	String Name;
 	String Email;
@@ -24,8 +25,6 @@ public class User implements Serializable{
 	String Phone;
 	String ZipCode;
 	String Intimately;
-	@OneToMany(mappedBy = "Cart")
-	List<Cart> Carts;
 	@OneToMany(mappedBy = "Bill")
 	List<Bill> Bills;
 }

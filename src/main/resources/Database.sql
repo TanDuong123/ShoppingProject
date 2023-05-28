@@ -27,6 +27,7 @@ create table Users
 	UserId varchar(10) primary key,
 	Password varchar(50) not null,
 	Role bit not null,
+	Activated bit not null,
 	Image nvarchar(200),
 	Name nvarchar(100) not null,
 	Email varchar(100),
@@ -38,7 +39,7 @@ create table Users
 go
 create table Bills
 (
-	BillId varchar(10) primary key,
+	BillId varchar(10) primary key identity,
 	UserId varchar(10) not null,
 	foreign key (UserId) references Users(UserId)
 )
@@ -99,7 +100,7 @@ INSERT into Bills ( BillId,UserId) values
 ('B007','U007'),
 ('B008','U008');
 
-INSERT into Categories ( CategoryId,[Name]) values 
+INSERT into categories values 
 ('C001','quần áo nam'),
 ('C002','Giày dép'),
 ('C003','Phụ kiện'),
@@ -107,7 +108,7 @@ INSERT into Categories ( CategoryId,[Name]) values
 ('C005','Quần áo nữ');
 
 
-INSERT into Products ( ProductId, [Name], [Image], Quantity,CategoryId, Size, Color, Price, Available, Decription) values 
+INSERT into products ( product_id, name, image, quantity,category_id, size, color, price, available, decription) values 
 ('P001','Áo Thun Under Broken12','https://picsum.photos/200/300','100','C001','38','Xanh lá','1200',1,'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
 ('P002','Áo Thun Under Broken2','https://picsum.photos/200/300','100','C001','38','Hồng','1200',1,'Lorem ipsum is placeholder text commonly used in the graphic, print, and'),
 ('P003','Áo Thun Under Broken3','https://picsum.photos/200/300','100','C001','38','Tím','1200',1,'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
@@ -152,5 +153,13 @@ insert into BillDetails (BillId, ProductId, Quantity, [Address], CreateDate, [St
 ('B008','P020',1,'11 Tô ký Quận 12','05-15-2023',1),
 ('B008','P016',1,'11 Tô ký Quận 12','05-15-2023',1);
 
-
+use Java5
 select *from BillDetails
+drop table bill_details
+create database Java5Lab
+
+drop table bill_details
+drop table bills
+drop table products
+drop table categories
+drop table users
