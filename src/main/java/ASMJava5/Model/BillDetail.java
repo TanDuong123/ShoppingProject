@@ -29,6 +29,7 @@ public class BillDetail implements Serializable{
 	Bill BillDetail;
 	@ManyToOne @JoinColumn(name="ProductId")
 	Product Product;
+	Double price;
 	Integer Quantity;
 	String Address;
 	@Temporal(TemporalType.DATE)
