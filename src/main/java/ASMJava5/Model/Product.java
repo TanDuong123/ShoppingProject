@@ -27,11 +27,13 @@ public class Product implements Serializable{
 	Integer Quantity;
 	@ManyToOne @JoinColumn(name="CategoryId")
 	Category Category;
-	String Color;
-	Integer Size;
 	Double Price;
 	Boolean Available;
 	String Decription;
 	@OneToMany(mappedBy = "Product")
 	List<BillDetail> BillDetails;
+	@OneToMany(mappedBy="ProductVariant")
+	List<ProductVariant> ProductVariants;
+	@OneToMany(mappedBy = "CartItem")
+	List<CartItem> CartItems;
 }

@@ -167,3 +167,6 @@ values('Duong','Tan',12000,'090909009','tanduong969@gmail.com',1),
 ('Duong','Tan5',12000,'090909009','tanduong969@gmail.com',1),
 ('Duong','Tan6',12000,'090909009','tanduong969@gmail.com',2)
 
+use Java5Lab
+
+drop table report

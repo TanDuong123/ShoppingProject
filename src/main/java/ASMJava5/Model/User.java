@@ -27,4 +27,6 @@ public class User implements Serializable{
 	String Intimately;
 	@OneToMany(mappedBy = "Bill")
 	List<Bill> Bills;
+	@OneToMany(mappedBy="Cart")
+	List<Cart> Carts;
 }
