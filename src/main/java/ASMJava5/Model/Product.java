@@ -24,7 +24,6 @@ public class Product implements Serializable{
 	String ProductId;
 	String Name;
 	String Image;
-	Integer Quantity;
 	@ManyToOne @JoinColumn(name="CategoryId")
 	Category Category;
 	Double Price;

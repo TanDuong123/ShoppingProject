@@ -21,6 +21,7 @@ import lombok.NoArgsConstructor;
 public class ProductVariant implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long ProductVariantId;
+	Integer Quantity;
 	@ManyToOne @JoinColumn(name="ProductId")
 	Product ProductVariant;
 }

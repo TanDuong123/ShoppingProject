@@ -127,10 +127,13 @@ select *from BillDetails
 drop table bill_details
 create database Java5Lab
 
+drop table cart_items
+drop table carts
+drop table product_variants
 drop table bill_details
 drop table bills
-drop table products
 drop table categories
+drop table products
 drop table users
 
 delete from bill_details;
