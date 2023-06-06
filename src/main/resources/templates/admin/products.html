@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
 
 <head>
 
@@ -227,34 +229,39 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>ProductID</th>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Image</th>
+                                            <th>Quantity</th>
+                                            <th>Size</th>
+                                            <th>Color</th>
+                                            <th>price</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>ProductID</th>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Image</th>
+                                            <th>Quantity</th>
+                                            <th>Size</th>
+                                            <th>Color</th>
+                                            <th>price</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                    <tr th:each="item : ${PRODUCTS}">
+                                            <td th:utext="${item.Productid}">ProductID</td>
+                                            <td th:utext="${item.Name}">Name</td>
+                                             <td>
+                                             <img class="w-25" alt="Hinh anh" th:src="${item.image}">
+                                             </td>
+                                            <td th:utext="${item.Quantity}">Quantity</td>
+                                            <td th:utext="${item.size}">Size</td>
+                                            <td th:utext="${item.color}">Color</td>
+                                            <td th:utext="${item.price}">price</td>
                                             <td>
                                             	<button  class="btn btn-danger">
 							                        <i class="fa fa-trash"></i>
@@ -264,7 +271,8 @@
 							                        <i class="fa fa-pencil"></i>
 							                    </button>
                                             </td>
-                                        </tr>
+                                            </tr>
+                                        
                                         
                                     </tbody>
                                 </table>
@@ -336,7 +344,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 
-					<form role="form">
+					<form role="form" action="/SpaceShope/admin/products" modelAttribute="PRODUCT">
 
 						<div class="form-group">
 							<div class="input-group">

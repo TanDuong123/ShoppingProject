@@ -10,12 +10,13 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+@SuppressWarnings("serial")
 @Data
 @Entity
 @Table(name="Categories")
 public class Category implements Serializable {
 	@Id
-	String CategoryId;
+	String Categoryid;
 	String Name;
 	@OneToMany(mappedBy = "Category")
 	List<Product> Products;

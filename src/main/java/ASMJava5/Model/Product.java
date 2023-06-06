@@ -15,18 +15,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.TemporalType;
 import lombok.Data;
-
+@SuppressWarnings("serial")
 @Data
 @Entity
 @Table(name="Products")
 public class Product implements Serializable{
 	@Id
-	String ProductId;
+	String Productid;
 	String Name;
 	String Image;
 	Integer Quantity;
-	@ManyToOne @JoinColumn(name="CategoryId")
+	@ManyToOne @JoinColumn(name="Categoryid")
 	Category Category;
+	String size;
+	String color;
 	Double Price;
 	Boolean Available;
 	String Decription;
