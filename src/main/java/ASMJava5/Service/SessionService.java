@@ -1,9 +1,11 @@
 package ASMJava5.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import jakarta.servlet.http.HttpSession;
 
+@Service
 public class SessionService {
 	@Autowired
 	HttpSession session;

@@ -10,31 +10,74 @@ INSERT into categories values
 ('C004',N'Quần áo trẻ em'),
 ('C005',N'Quần áo nữ');
 
-INSERT into products ( product_id,name, image, quantity,category_id, size, color, price, available, decription) values 
-('P001',N'Áo Thun Under Broken12','https://picsum.photos/200/300','100','C001','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
-('P002',N'Áo Thun Under Broken2','https://picsum.photos/200/300','100','C001','38',N'Hồng','1200',1,N'Lorem ipsum is placeholder text commonly used in the graphic, print, and'),
-('P003',N'Áo Thun Under Broken3','https://picsum.photos/200/300','100','C001','38',N'Tím','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
-('P004',N'Áo Thun Under Broken4','https://picsum.photos/200/300','100','C001','38',N'Xanh lá','1200',1,N'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.'),
-('P005',N'Áo Thun Under Broken5','https://picsum.photos/200/300','100','C001','38',N'Hồng','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+INSERT into products ( product_id,name, image,category_id, price, available, decription) values 
+('P001',N'Áo Thun Under Broken12','https://picsum.photos/200/300','C001','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P002',N'Áo Thun Under Broken2','https://picsum.photos/200/300','C001','1200',1,N'Lorem ipsum is placeholder text commonly used in the graphic, print, and'),
+('P003',N'Áo Thun Under Broken3','https://picsum.photos/200/300','C001','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P004',N'Áo Thun Under Broken4','https://picsum.photos/200/300','C001','1200',1,N'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.'),
+('P005',N'Áo Thun Under Broken5','https://picsum.photos/200/300','C001','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
 
-('P006',N'Mắt kính so 1 vũ trụ','https://picsum.photos/200/300','100','C003','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
-('P007',N'Mũ lưỡi trai đính đá lộng lẫy','https://picsum.photos/200/300','100','C003','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
-('P008',N'Túi LV 1 tỉ mốt','https://picsum.photos/200/300','100','C003','38',N'Xanh lá','1200',1,N'From its medieval origins to the digital era, learn everything there is to know about the ubiquitous lorem ipsum passage.'),
-('P009',N'Vòng tay phong thủy hiệu Tinh Lâm','https://picsum.photos/200/300','100','C003','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
-('P010',N'Pin con ó','https://picsum.photos/200/300','100','C003','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
-('P011',N'Thắt lưng da cá sấu thật','https://picsum.photos/200/300','100','C003','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P006',N'Mắt kính so 1 vũ trụ','https://picsum.photos/200/300','C003','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P007',N'Mũ lưỡi trai đính đá lộng lẫy','https://picsum.photos/200/300','C003','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P008',N'Túi LV 1 tỉ mốt','https://picsum.photos/200/300','C003','1200',1,N'From its medieval origins to the digital era, learn everything there is to know about the ubiquitous lorem ipsum passage.'),
+('P009',N'Vòng tay phong thủy hiệu Tinh Lâm','https://picsum.photos/200/300','C003','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P010',N'Pin con ó','https://picsum.photos/200/300','C003','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P011',N'Thắt lưng da cá sấu thật','https://picsum.photos/200/300','C003','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
 
-('P012',N'Giày nike','https://picsum.photos/200/300','100','C002','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
-('P013',N'Giày adidas','https://picsum.photos/200/300','100','C002','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
-('P014',N'Giày thượng đình HIEUTHUHAI','https://picsum.photos/200/300','100','C002','38',N'Xanh lá','1200',1,N'From its medieval origins to the digital era, learn everything there is to know about the ubiquitous lorem ipsum passage.'),
-('P015',N'Dép CROSS','https://picsum.photos/200/300','100','C002','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
-('P016',N'Giày  quai hậu học sinh','https://picsum.photos/200/300','100','C002','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P012',N'Giày nike','https://picsum.photos/200/300','C002','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P013',N'Giày adidas','https://picsum.photos/200/300','C002','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P014',N'Giày thượng đình HIEUTHUHAI','https://picsum.photos/200/300','C002','1200',1,N'From its medieval origins to the digital era, learn everything there is to know about the ubiquitous lorem ipsum passage.'),
+('P015',N'Dép CROSS','https://picsum.photos/200/300','C002','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P016',N'Giày  quai hậu học sinh','https://picsum.photos/200/300','C002','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
 
-('P017',N'Đầm dự tiệc','https://picsum.photos/200/300','100','C004','38',N'Xanh lá','1200',1,N'The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that does not distract from the layout.'),
-('P018',N'Áo bèo bèo','https://picsum.photos/200/300','100','C004','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
-('P019',N'Áo mưa cánh dơi','https://picsum.photos/200/300','100','C004','38',N'Xanh lá','1200',1,N'From its medieval origins to the digital era, learn everything there is to know about the ubiquitous lorem ipsum passage.'),
-('P020',N'Áo Thun Under Broken nữ','https://picsum.photos/200/300','100','C004','38',N'Xanh lá','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
-('P021',N'Áo Thun Under Broken unnisex','https://picsum.photos/200/300','100','C004','38',N'Xanh lá','1200',1,N'From its medieval origins to the digital era, learn everything there is to know about the ubiquitous lorem ipsum passage.');
+('P017',N'Đầm dự tiệc','https://picsum.photos/200/300','C004','1200',1,N'The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that does not distract from the layout.'),
+('P018',N'Áo bèo bèo','https://picsum.photos/200/300','C004','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P019',N'Áo mưa cánh dơi','https://picsum.photos/200/300','C004','1200',1,N'From its medieval origins to the digital era, learn everything there is to know about the ubiquitous lorem ipsum passage.'),
+('P020',N'Áo Thun Under Broken nữ','https://picsum.photos/200/300','C004','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
+('P021',N'Áo Thun Under Broken unnisex','https://picsum.photos/200/300','C004','1200',1,N'From its medieval origins to the digital era, learn everything there is to know about the ubiquitous lorem ipsum passage.');
+
+insert into product_variants(quantity,product_id,color,size) values
+(2,'P001',N'Đỏ',N'M'),
+(2,'P001',N'Xanh',N'L'),
+(2,'P001',N'Vàng',N'X'),
+(2,'P001',N'Tím',N'XL'),
+(2,'P001',N'Đen',N'XXL'),
+(2,'P002',N'Đỏ',N'M'),
+(2,'P002',N'Xanh',N'L'),
+(2,'P002',N'Vàng',N'X'),
+(2,'P002',N'Tím',N'XL'),
+(2,'P002',N'Đen',N'XXL'),
+(2,'P003',N'Đỏ',N'M'),
+(2,'P003',N'Xanh',N'L'),
+(2,'P003',N'Vàng',N'X'),
+(2,'P003',N'Tím',N'XL'),
+(2,'P003',N'Đen',N'XXL'),
+(2,'P004',N'Đỏ',N'M'),
+(2,'P004',N'Xanh',N'L'),
+(2,'P004',N'Vàng',N'X'),
+(2,'P004',N'Tím',N'XL'),
+(2,'P004',N'Đen',N'XXL'),
+(2,'P005',N'Đỏ',N'M'),
+(2,'P005',N'Xanh',N'L'),
+(2,'P005',N'Vàng',N'X'),
+(2,'P005',N'Tím',N'XL'),
+(2,'P005',N'Đen',N'XXL'),
+(2,'P006',N'Đỏ',N'M'),
+(2,'P006',N'Xanh',N'L'),
+(2,'P006',N'Vàng',N'X'),
+(2,'P006',N'Tím',N'XL'),
+(2,'P006',N'Đen',N'XXL'),
+(2,'P007',N'Đỏ',N'M'),
+(2,'P007',N'Xanh',N'L'),
+(2,'P007',N'Vàng',N'X'),
+(2,'P007',N'Tím',N'XL'),
+(2,'P007',N'Đen',N'XXL'),
+(2,'P008',N'Đỏ',N'M'),
+(2,'P008',N'Xanh',N'L'),
+(2,'P008',N'Vàng',N'X'),
+(2,'P008',N'Tím',N'XL'),
+(2,'P008',N'Đen',N'XXL')
+
 
 insert into users(user_name,password,activated,role,image,name,email,address,phone,zip_code,intimately) values
 ('tanduong','tan123',1,1,'',N'Dương Nhựt Tân','tanduong969@gmail.com',N'Quận Tân Bình','0977487711','',''),
@@ -43,6 +86,19 @@ insert into users(user_name,password,activated,role,image,name,email,address,pho
 ('phuongnga','nga123',1,0,'',N'Hồ Thị Phương Nga','phuongnga@gmail.com',N'Quận Tân Bình','0977487714','','Diamond'),
 ('truongan','an123',1,1,'',N'Nguyễn Trường An','truongan@gmail.com',N'Quận Tân Bình','0977487715','','')
 
+insert into carts values
+('tanduong'),
+('thanhtu'),
+('phuongnga'),
+('truongan')
+select *from carts
+select*from cart_items
+insert into cart_items values
+(1,'P001'),
+(1,'P002'),
+(1,'P003'),
+(1,'P004'),
+(1,'P005')
 INSERT into bills values 
 ('tanduong'),
 ('phuongnga'),
@@ -127,15 +183,20 @@ select *from BillDetails
 drop table bill_details
 create database Java5Lab
 
+use Java5Lab
+select * from report
+drop table report
+
 drop table cart_items
 drop table carts
 drop table product_variants
 drop table bill_details
 drop table bills
-drop table categories
 drop table products
+drop table categories
 drop table users
 
+delete from product_variants
 delete from bill_details;
 delete from bills;
 delete from products;

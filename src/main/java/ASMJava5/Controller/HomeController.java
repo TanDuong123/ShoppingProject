@@ -10,22 +10,31 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import ASMJava5.Dao.CategoryDAOInterface;
-import ASMJava5.Dao.ProductDAOInterface;
+import ASMJava5.Dao.CategoryDAO;
+import ASMJava5.Dao.ProductDAO;
+import ASMJava5.Dao.ProductVariantDAO;
 import ASMJava5.Model.Category;
 import ASMJava5.Model.Product;
+import ASMJava5.Model.ProductVariant;
+import ASMJava5.Service.SessionService;
 
 @Controller
 @RequestMapping("/SpaceShope/")
 public class HomeController {
 	@Autowired
-	ProductDAOInterface ProductDao;
+	SessionService session;
 	@Autowired
-	CategoryDAOInterface categoryDao;
+	ProductDAO ProductDao;
+	@Autowired
+	CategoryDAO categoryDao;
+	@Autowired
+	ProductVariantDAO ProductVariantDao;
 	@GetMapping("Home")
 	public String home(Model model, @RequestParam("page") Optional<Integer> page) {
 		Pageable pageable=PageRequest.of(page.orElse(0), 8);
@@ -42,16 +51,51 @@ public class HomeController {
 		model.addAttribute("products",products);
 		return "shop";
 	}
+	@RequestMapping("/search")
+	public String search(Model model, 
+			@RequestParam("nameProduct") Optional<String> name,
+			@RequestParam("page") Optional<Integer> page) {
+		String nameProduct=name.orElse(session.getAttribute("keyword"));
+		session.setAttribute("keyword", nameProduct);
+		Pageable pageable= PageRequest.of(page.orElse(0), 6);
+		Page<Product> products= ProductDao.findAllByName(nameProduct, pageable);
+		model.addAttribute("products",products);
+		return "shop";
+	}
 	@GetMapping("/contact")
 	public String contact() {
 		return "contact";
 	}
 	@GetMapping("/detail/{id}")
 	public String detail(Model model, @PathVariable("id") String id) {
-		Product product= new Product();
-		product= ProductDao.findById(id).get();
-		model.addAttribute("product", product);
+		Optional<Product> productOptional=ProductDao.findById(id);
+		if(productOptional.isPresent()) {
+			Product products=productOptional.get();
+			List<ProductVariant> variants= products.getProductVariants();
+			model.addAttribute("products",products);
+			model.addAttribute("variants", variants);
+			session.setAttribute("id", id);
+			System.out.println("id"+ session.getAttribute("id"));
+		}
 		return "detail";
+	}
+	@GetMapping("/findBySizeAndColor")
+	@ResponseBody
+	public int findBySizeAndColor(@RequestParam("size") String size, @RequestParam("color") String color) {
+	    // Xử lý logic để tìm số lượng dựa trên size và color
+		ProductVariant variant=ProductVariantDao.findBySizeAndColorAndProductid(size, color,session.getAttribute("id"));
+		Integer quantity=0;
+		if(variant !=null) {
+	    	quantity = variant.getQuantity();
+	    }
+		
+	    return quantity;
+	}
+	
+	@RequestMapping("/AddToCart")
+	public String addToCat() {
+		
+		return "cart";
 	}
 	@GetMapping("/checkout")
 	public String checkout() {

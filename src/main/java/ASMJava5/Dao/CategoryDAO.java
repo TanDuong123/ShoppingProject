@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import ASMJava5.Model.Category;
 
-public interface CategoryDAOInterface extends JpaRepository<Category, String>{
+public interface CategoryDAO extends JpaRepository<Category, String>{
 	
 }

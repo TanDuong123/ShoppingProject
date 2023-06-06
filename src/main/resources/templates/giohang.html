@@ -39,7 +39,8 @@
 									<div class="row" th:text="${items.name} + &euro; + ${items.price}"></div>
 								</div>
 								<div class="col">
-									<a th:href="@{/ASMJava5/update/{id}/dis (id=${items.id})}">-</a><a href="#" class="border" name="qty" th:text="${items.qty}"></a>
+									<a th:href="@{/ASMJava5/update/{id}/dis (id=${items.id})}">-</a>
+									<a href="#" class="border" name="qty" th:text="${items.qty}"></a>
 									<a th:href="@{/ASMJava5/update/{id}/plus (id=${items.id})}">+</a>
 								</div>
 								<div class="col" th:text="&euro; + ${items.price *items.qty}">

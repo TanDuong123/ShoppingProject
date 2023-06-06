@@ -2,6 +2,7 @@ package ASMJava5.Model;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +22,9 @@ import lombok.NoArgsConstructor;
 public class ProductVariant implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long ProductVariantId;
+	String size;
+	@Column(columnDefinition = "nvarchar(50)")
+	String color;
 	Integer Quantity;
 	@ManyToOne @JoinColumn(name="ProductId")
 	Product ProductVariant;

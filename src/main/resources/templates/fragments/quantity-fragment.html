@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="input-group quantity mr-3" style="width: 130px;">
+	     <div class="input-group-btn">
+	         <button id="decrement" class="btn btn-primary btn-minus">
+	             <i class="fa fa-minus"></i>
+	         </button>
+	     </div>
+	     <input type="number" id="quantity" min="1" max="100" th:value="${quantity}" disabled class="form-control bg-secondary border-0 text-center">
+	     <div class="input-group-btn">
+	         <button id="increment" class="btn btn-primary btn-plus">
+	             <i class="fa fa-plus"></i>
+	         </button>
+	     </div>
+	 </div>
+</body>
+</html>

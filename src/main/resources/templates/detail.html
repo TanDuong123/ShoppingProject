@@ -187,13 +187,13 @@
         <div class="row px-xl-5">
             <div class="col-lg-5 mb-30">
                 <div class=" bg-light">
-                     <img class="w-100 h-100" th:src="@{{image} (image=${product.image})}" alt="Image">
+                     <img class="w-100 h-100" th:src="@{{image} (image=${products.image})}" alt="Image">
   				</div>
             </div>
 
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
-                    <h3 th:text="${product.name}"></h3>
+                    <h3 th:text="${products.name}"></h3>
                     <div class="d-flex mb-3">
                         <div class="text-primary mr-2">
                             <small class="fas fa-star"></small>
@@ -204,74 +204,52 @@
                         </div>
                         <small class="pt-1">(99 Reviews)</small>
                     </div>
-                    <h3 class="font-weight-semi-bold mb-4" th:text="'$' +''+ ${product.price}"></h3>
-                    <p class="mb-4" th:text="product.decription"></p>
+                    <h3 class="font-weight-semi-bold mb-4" th:text="'$' +''+ ${products.price}"></h3>
+                    <p class="mb-4" th:text="${products.decription}"></p>
                     <div class="d-flex mb-3">
                         <strong class="text-dark mr-3">Sizes:</strong>
                         <form>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-1" name="size">
-                                <label class="custom-control-label" for="size-1">XS</label>
+                            <div th:each="variant: ${variants}" class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" 
+                                th:id="${variant.size}" th:name="size" 
+                                th:value="${variant.size}" th:data-size="${variant.size}">
+                                <label class="custom-control-label" th:for="${variant.size}" th:text="${variant.size}"></label>
                             </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-2" name="size">
-                                <label class="custom-control-label" for="size-2">S</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-3" name="size">
-                                <label class="custom-control-label" for="size-3">M</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-4" name="size">
-                                <label class="custom-control-label" for="size-4">L</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="size-5" name="size">
-                                <label class="custom-control-label" for="size-5">XL</label>
-                            </div>
+                            
                         </form>
                     </div>
                     <div class="d-flex mb-4">
                         <strong class="text-dark mr-3">Colors:</strong>
                         <form>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-1" name="color">
-                                <label class="custom-control-label" for="color-1">Black</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-2" name="color">
-                                <label class="custom-control-label" for="color-2">White</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-3" name="color">
-                                <label class="custom-control-label" for="color-3">Red</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-4" name="color">
-                                <label class="custom-control-label" for="color-4">Blue</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="color-5" name="color">
-                                <label class="custom-control-label" for="color-5">Green</label>
+                            <div th:each="variant: ${variants}" class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" 
+                                th:id="${variant.color}" th:name="color" 
+                                th:value="${variant.color}" th:data-color="${variant.color}">
+                                <label class="custom-control-label" th:for="${variant.color}" th:text="${variant.color}"></label>
                             </div>
                         </form>
                     </div>
+                    <div id="quantity"></div>
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <div class="input-group quantity mr-3" style="width: 130px;">
                             <div class="input-group-btn">
-                                <button class="btn btn-primary btn-minus">
+                                <button id="decrement" class="btn btn-primary btn-minus">
                                     <i class="fa fa-minus"></i>
                                 </button>
                             </div>
-                            <input type="text" class="form-control bg-secondary border-0 text-center" value="1">
+                            <input type="text" id="quantity" data-max-quantity="${maxQuantity}" min="1" max="100"  class="form-control bg-secondary border-0 text-center" value="1">
                             <div class="input-group-btn">
-                                <button class="btn btn-primary btn-plus">
+                                <button id="increment" class="btn btn-primary btn-plus">
                                     <i class="fa fa-plus"></i>
                                 </button>
                             </div>
                         </div>
-                        <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To
-                            Cart</button>
+                        <a href="/SpaceShope/AddToCart">
+                        	<button id="addToCart" class="btn btn-primary px-3">
+	                        	<i class="fa fa-shopping-cart mr-1"></i> Add To Cart
+	                         </button>
+                        </a>
+                        
                     </div>
                     <div class="d-flex pt-2">
                         <strong class="text-dark mr-2">Share on:</strong>
@@ -304,7 +282,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-pane-1">
                             <h4 class="mb-3">Product Description</h4>
-                            <p th:text="${product.decription}"></p>
+                            <p th:text="${products.decription}"></p>
                         </div>
                         <div class="tab-pane fade" id="tab-pane-2">
                             <h4 class="mb-3">Additional Information</h4>
@@ -552,7 +530,36 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-
+	<!-- JS Cart -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+	    $(document).ready(function() {
+	        $('input[type=radio][name=size], input[type=radio][name=color]').change(function() {
+	            var selectedSize = $('input[type=radio][name=size]:checked').data('size');
+	            var selectedColor = $('input[type=radio][name=color]:checked').data('color');
+				if(selectedSize!=null && selectedColor!=null){
+					$.ajax({
+		                url: '/SpaceShope/findBySizeAndColor', // Đường dẫn đến phương thức trong Spring Boot Controller
+		                type: 'GET',
+		                data: {
+		                    size: selectedSize,
+		                    color: selectedColor
+		                },
+		                success: function(quantity) {
+		                    $('#quantity').text('Quantity: ' + quantity);
+		                },
+		                error: function() {
+		                    $('#quantity').text('Quantity: N/A');
+		                }
+		            });
+				}else{
+					$('#quantity').text('Quantity:');
+				}
+	            
+	        });
+	    });
+	</script>
+	
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>

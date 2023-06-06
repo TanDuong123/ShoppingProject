@@ -22,12 +22,14 @@ import lombok.Data;
 public class Product implements Serializable{
 	@Id
 	String ProductId;
+	@Column(columnDefinition = "nvarchar(200)")
 	String Name;
 	String Image;
 	@ManyToOne @JoinColumn(name="CategoryId")
 	Category Category;
 	Double Price;
 	Boolean Available;
+	@Column(columnDefinition = "nvarchar(500)")
 	String Decription;
 	@OneToMany(mappedBy = "Product")
 	List<BillDetail> BillDetails;

@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import ASMJava5.Model.Bill;
 
-public interface BillDAOInterface extends JpaRepository<Bill, String> {
+public interface BillDAO extends JpaRepository<Bill, String> {
 
 }

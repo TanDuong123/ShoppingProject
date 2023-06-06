@@ -31,6 +31,7 @@ public class BillDetail implements Serializable{
 	Product Product;
 	Double price;
 	Integer Quantity;
+	@Column(columnDefinition = "nvarchar(300)")
 	String Address;
 	@Temporal(TemporalType.DATE)
 	@Column(name="CreateDate")
