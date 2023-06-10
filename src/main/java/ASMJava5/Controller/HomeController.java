@@ -106,20 +106,20 @@ public class HomeController {
 		return "cart";
 	}
 	//admin
-	@GetMapping("/admin/index")
-	public String adminIndex() {
-		return "admin/index";
-	}
-	@GetMapping("/admin/account")
-	public String adminaccount() {
-		return "admin/account";
-	}
-	@GetMapping("/admin/products")
-	public String adminProduct() {
-		return "admin/products";
-	}
-	@GetMapping("/admin/carts")
-	public String adminCarts() {
-		return "admin/carts";
-	}
+//	@GetMapping("/admin/index")
+//	public String adminIndex() {
+//		return "admin/index";
+//	}
+//	@GetMapping("/admin/account")
+//	public String adminaccount() {
+//		return "admin/account";
+//	}
+//	@GetMapping("/admin/products")
+//	public String adminProduct() {
+//		return "admin/products";
+//	}
+//	@GetMapping("/admin/carts")
+//	public String adminCarts() {
+//		return "admin/carts";
+//	}
 }
