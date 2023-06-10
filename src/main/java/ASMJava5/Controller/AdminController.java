@@ -53,11 +53,13 @@ private final ProductService productService;
 			return "admin/index";
 		}
 		@GetMapping("/admin/account")
-		public String adminaccount(Model model) {
+		public String adminaccount(Model model, @RequestParam("p") Optional<Integer> p) {
 			User user = new User();
 			model.addAttribute("user",user);
-			List<User> users = UserDao.findAll();
-			model.addAttribute("users",users);
+			
+			Pageable pageable = PageRequest.of(p.orElse(0), 3);
+			Page<User> page = UserDao.findAll(pageable);
+			model.addAttribute("users",page);
 			return "admin/account";
 		}
 		@PostMapping("/admin/account/add")
@@ -98,6 +100,63 @@ private final ProductService productService;
 			List<User> prod = UserDao.findAll();
 			model.addAttribute("users",prod);
 			return "admin/account";
+		}
+		
+		@GetMapping("/admin/account/edit")
+		public String editAccount(Model model) {
+			String id = request.getParameter("id");
+			Optional<User> userOptional=UserDao.findById(id);
+			if(userOptional.isPresent()) {
+				User user=userOptional.get();
+				model.addAttribute("UserName",user.getUserName());
+				model.addAttribute("Password",user.getPassword());
+				model.addAttribute("Role",user.getRole());
+				model.addAttribute("Activated",user.getActivated());
+				model.addAttribute("Image",user.getImage());
+				model.addAttribute("Name",user.getName());
+				model.addAttribute("Address",user.getAddress());
+				model.addAttribute("Phone",user.getPhone());
+				model.addAttribute("email",user.getEmail());
+				model.addAttribute("ZipCode",user.getZipCode());
+				model.addAttribute("Intimately",user.getIntimately());
+			}
+//			session.setAttribute("productid", prod.getProductId());
+//			model.addAttribute("product",prod);
+//			System.out.println(id);
+//			System.out.println(productOptional);
+			return "admin/formAccount";
+		}
+		
+		@PostMapping("/admin/account/edit")
+		public String updateAccount(Model model,
+				@RequestParam("UserName") String UserName,
+				@RequestParam("Password") String Password,
+				@RequestParam("Role") Boolean Role,
+				@RequestParam("Activated") Boolean Activated,
+				@RequestParam("Image") String Image,
+				@RequestParam("Name") String Name,
+				@RequestParam("email") String Email,
+				@RequestParam("Address") String Address,
+				@RequestParam("Phone") String Phone,
+				@RequestParam("ZipCode") String ZipCode,
+				@RequestParam("Intimately") String Intimately) {
+			User user  = new User();
+			user.setUserName(UserName);
+			user.setPassword(Password);
+			user.setRole(Role);
+			user.setActivated(Activated);
+			user.setImage(Image);
+			user.setName(Name);
+			user.setEmail(Email);
+			user.setAddress(Address);
+			user.setPhone(Phone);
+			user.setZipCode(ZipCode);
+			user.setIntimately(Intimately);
+			UserDao.save(user);
+
+			List<User> users = UserDao.findAll();
+			model.addAttribute("users",users);
+			return "redirect:/SpaceShope/admin/account";
 		}
 		
 		@GetMapping("/admin/products")
@@ -148,7 +207,7 @@ private final ProductService productService;
 				model.addAttribute("productID",product.getProductId());
 				model.addAttribute("productDesc",product.getDecription());
 				model.addAttribute("productAvai",product.getAvailable());
-//				model.addAttribute("productCategory",product.getCategory());
+				model.addAttribute("productCategory",product.getCategory().getCategoryId());
 				System.out.println(product.getName());
 			}
 //			session.setAttribute("productid", prod.getProductId());
@@ -157,7 +216,7 @@ private final ProductService productService;
 //			System.out.println(productOptional);
 			return "admin/formProduct";
 		}
-		@PostMapping("/admin/products/update")
+		@PostMapping("/admin/products/edit")
 		public String update(Model model,
 				@RequestParam("productid") String productid,
 				@RequestParam("name") String name,
@@ -166,13 +225,17 @@ private final ProductService productService;
 				@RequestParam("price") Double price,
 				@RequestParam("available") Boolean available,
 				@RequestParam("decription") String decription) {
-//			Product product = new Product();
-//			model.addAttribute("product",product);
-//			productService.updateProduct(productid, name, image, price, category, decription, available);
-			System.out.println("yes");
-//			List<Product> prod = ProductDao.findAll();
-//			model.addAttribute("PRODUCTS",prod);
-			return "admin/products";
+			try {
+				Product product = new Product();
+				productService.createProduct(productid, name, image, price, category, decription, available);
+				ProductDao.save(product);
+				System.out.println("update");
+				List<Product> prod = ProductDao.findAll();
+				model.addAttribute("PRODUCTS",prod);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			return "redirect:/SpaceShope/admin/products";
 		}
 
 		

@@ -271,11 +271,10 @@
 					<div class="d-flex justify-content-center">
 						<nav aria-label="Page navigation example">
 						<ul class="pagination">
+							<li class="page-item"><a class="page-link" th:href="@{/SpaceShope/admin/products?(p=0)}">First</a></li>
 							<li class="page-item"><a class="page-link" th:href="@{/SpaceShope/admin/products?(p=${PRODUCTS.number>0?PRODUCTS.number-1:0})}">Previous</a></li>
-							<li class="page-item"><a class="page-link" th:href="@{/SpaceShope/admin/products?(p=0)}">1</a></li>
-							<li class="page-item"><a class="page-link" th:href="@{/SpaceShope/admin/products?(p=1)}">2</a></li>
-							<li class="page-item"><a class="page-link" th:href="@{/SpaceShope/admin/products?(p=2)}">3</a></li>
 							<li class="page-item"><a class="page-link" th:href="@{/SpaceShope/admin/products?(p=${PRODUCTS.number+1})}">Next</a></li>
+							<li class="page-item"><a class="page-link" th:href="@{/SpaceShope/admin/products?(p=${PRODUCTS.totalPages-1})}">Last</a></li>
 						</ul>
 					</nav>
 					</div>
