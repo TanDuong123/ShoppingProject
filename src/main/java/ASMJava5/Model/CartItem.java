@@ -21,8 +21,9 @@ import lombok.NoArgsConstructor;
 public class CartItem implements Serializable{
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long CartItemId;
-	@ManyToOne @JoinColumn(name="ProductId")
-	Product CartItem;
+	Integer Quantity;
+	@ManyToOne @JoinColumn(name="ProductVariantId")
+	ProductVariant CartItem;
 	@ManyToOne @JoinColumn(name="CartId")
 	Cart Cart;
 }

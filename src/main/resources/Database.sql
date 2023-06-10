@@ -9,7 +9,6 @@ INSERT into categories values
 ('C003',N'Phụ kiện'),
 ('C004',N'Quần áo trẻ em'),
 ('C005',N'Quần áo nữ');
-
 INSERT into products ( product_id,name, image,category_id, price, available, decription) values 
 ('P001',N'Áo Thun Under Broken12','https://picsum.photos/200/300','C001','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
 ('P002',N'Áo Thun Under Broken2','https://picsum.photos/200/300','C001','1200',1,N'Lorem ipsum is placeholder text commonly used in the graphic, print, and'),
@@ -36,7 +35,9 @@ INSERT into products ( product_id,name, image,category_id, price, available, dec
 ('P020',N'Áo Thun Under Broken nữ','https://picsum.photos/200/300','C004','1200',1,N'Áo Thun Under Broken Nhiều Màu Xanh Lá Vải Cotton Thời Trang Nam Nữ Ulzzang Unisex ldshoptato'),
 ('P021',N'Áo Thun Under Broken unnisex','https://picsum.photos/200/300','C004','1200',1,N'From its medieval origins to the digital era, learn everything there is to know about the ubiquitous lorem ipsum passage.');
 
+use Java5
 insert into product_variants(quantity,product_id,color,size) values
+(5,'P001',N'Đỏ',N'L'),
 (2,'P001',N'Đỏ',N'M'),
 (2,'P001',N'Xanh',N'L'),
 (2,'P001',N'Vàng',N'X'),
@@ -77,6 +78,32 @@ insert into product_variants(quantity,product_id,color,size) values
 (2,'P008',N'Vàng',N'X'),
 (2,'P008',N'Tím',N'XL'),
 (2,'P008',N'Đen',N'XXL')
+use Java5Lab
+INSERT into products (name, image,createdate,categoryid, price, available) values 
+(N'Áo Thun Under Broken12','https://picsum.photos/200/300','03-04-2023','C001','1200',1),
+(N'Áo Thun Under Broken2','https://picsum.photos/200/300','03-04-2023','C001','1200',1),
+(N'Áo Thun Under Broken3','https://picsum.photos/200/300','03-04-2023','C001','1200',1),
+(N'Áo Thun Under Broken4','https://picsum.photos/200/300','03-04-2023','C001','1200',1),
+(N'Áo Thun Under Broken5','https://picsum.photos/200/300','03-04-2023','C001','1200',1),
+
+(N'Mắt kính so 1 vũ trụ','https://picsum.photos/200/300','03-04-2023','C003','1200',1),
+(N'Mũ lưỡi trai đính đá lộng lẫy','https://picsum.photos/200/300','03-04-2023','C003','1200',1),
+(N'Túi LV 1 tỉ mốt','https://picsum.photos/200/300','03-04-2023','C003','1200',1),
+(N'Vòng tay phong thủy hiệu Tinh Lâm','https://picsum.photos/200/300','03-04-2023','C003','1200',1),
+(N'Pin con ó','https://picsum.photos/200/300','03-04-2023','C003','1200',1),
+(N'Thắt lưng da cá sấu thật','https://picsum.photos/200/300','03-04-2023','C003','1200',1),
+
+(N'Giày nike','https://picsum.photos/200/300','03-04-2023','C002','1200',1),
+(N'Giày adidas','https://picsum.photos/200/300','03-04-2023','C002','1200',1),
+(N'Giày thượng đình HIEUTHUHAI','https://picsum.photos/200/300','03-04-2023','C002','1200',1),
+(N'Dép CROSS','https://picsum.photos/200/300','03-04-2023','C002','1200',1),
+(N'Giày  quai hậu học sinh','https://picsum.photos/200/300','03-04-2023','C002','1200',1),
+
+(N'Đầm dự tiệc','https://picsum.photos/200/300','03-04-2023','C004','1200',1),
+(N'Áo bèo bèo','https://picsum.photos/200/300','03-04-2023','C004','1200',1),
+(N'Áo mưa cánh dơi','https://picsum.photos/200/300','03-04-2023','C004','1200',1),
+(N'Áo Thun Under Broken nữ','https://picsum.photos/200/300','03-04-2023','C004','1200',1),
+(N'Áo Thun Under Broken unnisex','https://picsum.photos/200/300','03-04-2023','C004','1200',1);
 
 
 insert into users(user_name,password,activated,role,image,name,email,address,phone,zip_code,intimately) values
@@ -91,14 +118,20 @@ insert into carts values
 ('thanhtu'),
 ('phuongnga'),
 ('truongan')
+use Java5
+select *from users
+select * from products
+select * from product_variants
 select *from carts
 select*from cart_items
+select *from bills
+select *from bill_details
 insert into cart_items values
-(1,'P001'),
-(1,'P002'),
-(1,'P003'),
-(1,'P004'),
-(1,'P005')
+(1,2),
+(1,3),
+(1,4),
+(1,2),
+(1,2)
 INSERT into bills values 
 ('tanduong'),
 ('phuongnga'),
@@ -184,7 +217,12 @@ drop table bill_details
 create database Java5Lab
 
 use Java5Lab
+use Java5
 select * from report
+select * from products
+select * from product_variants
+select *from carts
+select *from cart_items
 drop table report
 
 drop table cart_items
@@ -234,3 +272,11 @@ values('Duong','Tan',12000,'090909009','tanduong969@gmail.com',1),
 use Java5Lab
 
 drop table report
+
+use master
+create database Java5Lab7
+use Java5Lab7
+select *from accounts
+insert into accounts(username,activated,admin,email,fullname,password,photo)values
+('tanduong',1,1,'tanduong969@gmail.com',N'Dương Nhựt Tân','123','img1.jpg'),
+('tanduong12',1,0,'tanduong969@gmail.com',N'Dương Nhựt Tân','123','img2.jpg')
