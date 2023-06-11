@@ -1,5 +1,9 @@
 package ASMJava5.Controller;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import ASMJava5.Dao.CartItemDAO;
 import ASMJava5.Dao.UserDAO;
+import ASMJava5.Model.MailInfor;
 import ASMJava5.Model.User;
+import ASMJava5.Service.MailerServiceImpl;
 import ASMJava5.Service.SessionService;
 
 @Controller
@@ -23,6 +29,8 @@ public class AccountController {
 	UserDAO userDao;
 	@Autowired
 	CartItemDAO cartItemDao;
+	@Autowired
+	MailerServiceImpl mailer;
 	@GetMapping("index")
 	public String index() {
 		return "account/login";
@@ -81,6 +89,20 @@ public class AccountController {
 			user.setIntimately("");
 			userDao.save(user);
 			model.addAttribute("errorRegister", "Register success!");
+			
+			//send mail if user register success 
+			List<File> files= new ArrayList<>();
+			
+			MailInfor mail= new MailInfor();
+			mail.setTo(email);
+			mail.setCc(null);
+			mail.setBcc(null);
+			mail.setSubject("Hello");
+			mail.setBody("Test Mail");
+			File file = new File("/ASMJava5/src/main/resources/static/img/LogoBlueTigers.png");
+			files.add(file);
+			mail.setFiles(files);
+			mailer.queue(mail);
 			return "redirect:/account/index";
 		}
 		else {

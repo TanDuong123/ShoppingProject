@@ -1,5 +1,8 @@
 package ASMJava5.Controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import ASMJava5.Dao.CartDAO;
 import ASMJava5.Dao.CartItemDAO;
@@ -28,9 +32,11 @@ import ASMJava5.Dao.UserDAO;
 import ASMJava5.Model.Cart;
 import ASMJava5.Model.CartItem;
 import ASMJava5.Model.Category;
+import ASMJava5.Model.MailInfor;
 import ASMJava5.Model.Product;
 import ASMJava5.Model.ProductVariant;
 import ASMJava5.Model.User;
+import ASMJava5.Service.MailerServiceImpl;
 import ASMJava5.Service.SessionService;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -56,7 +62,8 @@ public class HomeController {
 		Pageable pageable=PageRequest.of(page.orElse(0), 8);
 		Page<Product> products= ProductDao.findAll(pageable);
 		model.addAttribute("products",products);
-		List<Category> categories= categoryDao.findAll();
+//		List<Category> categories= categoryDao.findAll();
+		List<Object[]> categories= categoryDao.findAllCategory();
 		model.addAttribute("categories",categories);
 		return "index";
 	}
@@ -64,6 +71,15 @@ public class HomeController {
 	public String shop(Model model, @RequestParam("page") Optional<Integer> page) {
 		Pageable pageable=PageRequest.of(page.orElse(0), 6);
 		Page<Product> products= ProductDao.findAll(pageable);
+		model.addAttribute("products",products);
+		return "shop";
+	}
+	@GetMapping("category/{id}")
+	public String categoryId(Model model, 
+			@PathVariable("id") String id,
+			@RequestParam("page") Optional<Integer> page) {
+		Pageable pageable=PageRequest.of(page.orElse(0), 6);
+		Page<Product> products= ProductDao.findByCategoryId(id,pageable);
 		model.addAttribute("products",products);
 		return "shop";
 	}
@@ -169,6 +185,9 @@ public class HomeController {
 		model.addAttribute("inforUser", inforUser);
 		return "checkout";
 	}
+	@Autowired
+	MailerServiceImpl mailer;
+	
 	@GetMapping("order")
 	public String order(){
 		

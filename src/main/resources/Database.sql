@@ -126,12 +126,14 @@ select *from carts
 select*from cart_items
 select *from bills
 select *from bill_details
+delete users where user_name='thanhtu123'
+drop table cart_items
 insert into cart_items values
-(1,2),
-(1,3),
-(1,4),
-(1,2),
-(1,2)
+(2,1,2),
+(2,1,3),
+(2,1,4),
+(2,1,2),
+(2,1,2)
 INSERT into bills values 
 ('tanduong'),
 ('phuongnga'),
