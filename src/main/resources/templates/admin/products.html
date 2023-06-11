@@ -246,7 +246,7 @@
 									<tbody>
 
 										<tr th:each="item :${PRODUCTS}">
-											<td th:text="${item.ProductId}"><a th:href="a"></a></td>
+											<td ><a th:href="@{/SpaceShope/admin/product/detail?(id=${item.ProductId})}" th:text="${item.ProductId}"></a></td>
 											<td th:text="${item.name}"></td>
 											<td><img class="w-100" alt="Hinh anh"
 												th:src="${item.image}"></td>

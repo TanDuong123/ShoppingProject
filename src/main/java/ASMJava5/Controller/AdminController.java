@@ -52,6 +52,12 @@ private final ProductService productService;
 		public String adminIndex() {
 			return "admin/index";
 		}
+		
+		
+//		ACCOUNT----------------------------------------------------------------
+		
+		
+		
 		@GetMapping("/admin/account")
 		public String adminaccount(Model model, @RequestParam("p") Optional<Integer> p) {
 			User user = new User();
@@ -159,6 +165,10 @@ private final ProductService productService;
 			return "redirect:/SpaceShope/admin/account";
 		}
 		
+		
+//		PRODUCT----------------------------------------------------------------------------
+		
+		
 		@GetMapping("/admin/products")
 		public String adminProduct(Model model, @RequestParam("p") Optional<Integer> p) {
 			Product product = new Product();
@@ -238,6 +248,12 @@ private final ProductService productService;
 			return "redirect:/SpaceShope/admin/products";
 		}
 
+//		PRODUCT DETAIL
+		@RequestMapping("/admin/product/detail")
+		public String detail() {
+			
+			return "/admin/Productdetail";
+		}
 		
 		@GetMapping("/admin/carts")
 		public String adminCarts() {

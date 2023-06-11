@@ -1,10 +1,327 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Tables</title>
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/admin.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
-<body>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="mx-4" href="/admin/index">
+                <img class="m-auto" alt="" src="/img/LogoBlueTigers.png" width="50%">
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="/SpaceShope/admin/index">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Thống kê </span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+            <!-- Nav Item - Utilities Collapse Menu -->
+            
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Quản lý
+            </div>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                    aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Acount</span>
+                </a>
+                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" href="">Logout</a>
+                        <a class="collapse-item" href="">Profile</a>
+                        <a class="collapse-item" href="">Change Password</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Tables -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/SpaceShope/admin/account">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tài khoản</span></a>
+            </li>
+             <!-- Nav Item - Tables -->
+             <li class="nav-item active">
+                <a class="nav-link" href="/SpaceShope/admin/carts">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Giỏ hàng</span></a>
+            </li>
+             <!-- Nav Item - Tables -->
+             <li class="nav-item active">
+                <a class="nav-link" href="/SpaceShope/admin/products">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Sản phẩm</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex justify-content-center">
+
+           
+
+                <form th:action="@{/SpaceShope/admin/account/edit}"
+						th:object="${user}" th:method="post" role="form">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-user"></i></span>
+								</div>
+								<input th:value="${UserName}" type="text" th:name="UserName" id="UserName"
+									class="form-control input-sm" placeholder="UserName">
+							</div>
+
+							<span class="sp-thongbao" id="tbTKNV"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input th:value="${Password}" type="Password" th:name="Password" id="Password"
+									class="form-control input-sm" placeholder="Password">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input th:value="${Role}" type="text" th:name="Role" id="Role"
+									class="form-control input-sm" placeholder="Role">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input th:value="${Activated}" type="text" th:name="Activated" id="Activated"
+									class="form-control input-sm" placeholder="Activated">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input type="text" th:value="${Image}" th:name="Image" id="Image"
+									class="form-control input-sm" placeholder="Image">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input th:value="${Name}" type="text" th:name="Name" id="Name"
+									class="form-control input-sm" placeholder="Name">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input th:value="${Address}" type="text" th:name="Address" id="Address"
+									class="form-control input-sm" placeholder="Address">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input th:value="${Phone}" type="text" th:name="Phone" id="Phone"
+									class="form-control input-sm" placeholder="Phone">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-envelope"></i></span>
+								</div>
+								<input th:value="${email}" type="email" th:name="email" id="email"
+									class="form-control input-sm" placeholder="Email">
+							</div>
+
+							<span class="sp-thongbao" id="tbEmail"></span>
+						</div>
+
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-calendar"></i></span>
+								</div>
+								<input th:value="${ZipCode}" type="text" th:name="ZipCode" id="ZipCode"
+									class="form-control" placeholder="ZipCode">
+							</div>
+
+							<span class="sp-thongbao" id="tbNgay"></span>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-money"
+										aria-hidden="true"></i></span>
+								</div>
+								<input th:value="${Intimately}" type="text" th:name="Intimately" id="Intimately"
+									class="form-control input-sm" placeholder="Intimately">
+							</div>
+							<span class="sp-thongbao" id="tbLuongCB"></span>
+						</div>
+						<div class="modal-footer" id="modal-footer">
+							<button id="btnThemNV" class="btn btn-success">Thêm
+								người dùng</button>
+							<button id="btnDong" type="button" class="btn btn-danger"
+								data-dismiss="modal">Đóng</button>
+						</div>
+
+					</form>
+
+           
+           
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- The Modal -->
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog"  style="padding:10px">
+			<div class="modal-content">
+
+				<header class="head-form my-2">
+					<h2 id="header-title">Account</h2>
+				</header>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+
+					
+				</div>
+
+				
+
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		(function getById(){
+			var urlParams = new URLSearchParams(window.location.search);
+			var id = urlParams.get('id');
+			console.log(id)
+		})();
+	</script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
+
 
 </body>
+
 </html>
