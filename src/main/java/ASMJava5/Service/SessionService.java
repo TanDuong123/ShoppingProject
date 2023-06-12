@@ -19,5 +19,4 @@ public class SessionService {
 	public void removeAttribute(String name) {
 		session.removeAttribute(name);
 	}
-	
 }
