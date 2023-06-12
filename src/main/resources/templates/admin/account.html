@@ -1,300 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+<title>SB Admin 2 - Tables</title>
 
-    <!-- Custom fonts for this template -->
-    <!-- FontAwesome 6.2.0 CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+<!-- Custom fonts for this template -->
+<!-- FontAwesome 6.2.0 CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+	integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Custom styles for this template -->
-    <link href="/css/admin.css" rel="stylesheet">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="/css/admin.css" rel="stylesheet">
 
 
 </head>
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+		<!-- Sidebar -->
+		<ul
+			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+			id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-           <a class="mx-4" href="/admin/index">
-                <img class="m-auto" alt="" src="/img/LogoBlueTigers.png" width="50%">
-            </a>
+			<!-- Sidebar - Brand -->
+			<a class="mx-4" href="/SpaceShope/admin/index"> <img
+				class="m-auto" alt="" src="/img/LogoBlueTigers.png" width="50%">
+			</a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/index">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Thống kê </span></a>
-            </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-            <!-- Nav Item - Utilities Collapse Menu -->
-            
+			<!-- Nav Item - Dashboard -->
+			<li class="nav-item"><a class="nav-link"
+				href="/SpaceShope/admin/index"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>Thống kê </span></a></li>
+			<!-- Divider -->
+			<hr class="sidebar-divider">
+			<!-- Heading -->
+			<div class="sidebar-heading">Interface</div>
+			<!-- Nav Item - Utilities Collapse Menu -->
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Quản lý
-            </div>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-                    aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Acount</span>
-                </a>
-                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="">Logout</a>
-                        <a class="collapse-item" href="">Profile</a>
-                        <a class="collapse-item" href="">Change Password</a>
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Tables -->
-            <li class="nav-item active">
-                <a class="nav-link" href="/admin/account">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tài khoản</span></a>
-            </li>
-             <!-- Nav Item - Tables -->
-             <li class="nav-item active">
-                <a class="nav-link" href="/admin/carts">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Giỏ hàng</span></a>
-            </li>
-             <!-- Nav Item - Tables -->
-             <li class="nav-item active">
-                <a class="nav-link" href="/admin/products">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Sản phẩm</span></a>
-            </li>
+			<!-- Divider -->
+			<hr class="sidebar-divider">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+			<!-- Heading -->
+			<div class="sidebar-heading">Quản lý</div>
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item active"><a class="nav-link" href="#"
+				data-toggle="collapse" data-target="#collapsePages"
+				aria-expanded="true" aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-folder"></i> <span>Acount</span>
+			</a>
+				<div id="collapsePages" class="collapse show"
+					aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">Login Screens:</h6>
+						<a class="collapse-item" href="">Logout</a> <a
+							class="collapse-item" href="">Profile</a> <a
+							class="collapse-item" href="">Change Password</a>
+					</div>
+				</div></li>
+			<!-- Nav Item - Tables -->
+			<li class="nav-item active"><a class="nav-link"
+				href="/SpaceShope/admin/account"> <i class="fas fa-fw fa-table"></i>
+					<span>Tài khoản</span></a></li>
+			<!-- Nav Item - Tables -->
+			<li class="nav-item active"><a class="nav-link"
+				href="/SpaceShope/admin/carts"> <i class="fas fa-fw fa-table"></i>
+					<span>Giỏ hàng</span></a></li>
+			<!-- Nav Item - Tables -->
+			<li class="nav-item active"><a class="nav-link"
+				href="/SpaceShope/admin/products"> <i class="fas fa-fw fa-table"></i>
+					<span>Sản phẩm</span></a></li>
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+			<!-- Divider -->
+			<hr class="sidebar-divider d-none d-md-block">
 
-        </ul>
-        <!-- End of Sidebar -->
+			<!-- Sidebar Toggler (Sidebar) -->
+			<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div>
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+		</ul>
+		<!-- End of Sidebar -->
 
-            <!-- Main Content -->
-            <div id="content">
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
 
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+			<!-- Main Content -->
+			<div id="content">
 
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </form>
+				<!-- Topbar -->
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+					<!-- Sidebar Toggle (Topbar) -->
+					<form class="form-inline">
+						<button id="sidebarToggleTop"
+							class="btn btn-link d-md-none rounded-circle mr-3">
+							<i class="fa fa-bars"></i>
+						</button>
+					</form>
 
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+					<!-- Topbar Search -->
+					<form
+						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+						<div class="input-group">
+							<input type="text" class="form-control bg-light border-0 small"
+								placeholder="Search for..." aria-label="Search"
+								aria-describedby="basic-addon2">
+							<div class="input-group-append">
+								<button class="btn btn-primary" type="button">
+									<i class="fas fa-search fa-sm"></i>
+								</button>
+							</div>
+						</div>
+					</form>
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
 
-                     
+						<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+						<li class="nav-item dropdown no-arrow d-sm-none"><a
+							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
+						</a> <!-- Dropdown - Messages -->
+							<div
+								class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+								aria-labelledby="searchDropdown">
+								<form class="form-inline mr-auto w-100 navbar-search">
+									<div class="input-group">
+										<input type="text"
+											class="form-control bg-light border-0 small"
+											placeholder="Search for..." aria-label="Search"
+											aria-describedby="basic-addon2">
+										<div class="input-group-append">
+											<button class="btn btn-primary" type="button">
+												<i class="fas fa-search fa-sm"></i>
+											</button>
+										</div>
+									</div>
+								</form>
+							</div></li>
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
 
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="https://www.pngall.com/wp-content/uploads/12/Boy-PNG-Images.png">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Change Password
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
 
-                    </ul>
+						<div class="topbar-divider d-none d-sm-block"></div>
 
-                </nav>
-                <!-- End of Topbar -->
+						<!-- Nav Item - User Information -->
+						<li class="nav-item dropdown no-arrow"><a
+							class="nav-link dropdown-toggle" href="#" id="userDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas
+									McGee</span> <img class="img-profile rounded-circle"
+								src="https://www.pngall.com/wp-content/uploads/12/Boy-PNG-Images.png">
+						</a> <!-- Dropdown - User Information -->
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<a class="dropdown-item" href="#"> <i
+									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+								</a> <a class="dropdown-item" href="#"> <i
+									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Change
+									Password
+								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Logout
+								</a>
+							</div></li>
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+					</ul>
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary"  style="float:left">DataTables Example</h6>
-                            <div class="col-md-6 text-right"  style="float:right">
+				</nav>
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+
+					<!-- DataTales Example -->
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary" style="float: left">DataTables
+								Example</h6>
+							<div class="col-md-6 text-right" style="float: right">
 								<button class="btn btn-primary" id="btnThem" data-toggle="modal"
 									data-target="#myModal">Thêm nhân viên</button>
 							</div>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>
-                                            	<button  class="btn btn-danger">
-							                        <i class="fa fa-trash"></i>
-							                    </button>
-							                    <button class="btn btn-warning" data-toggle="modal"
-							                        data-target="#myModal">
-							                        <i class="fa fa-pencil"></i>
-							                    </button>
-                                            </td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable" width="100%"
+									cellspacing="0">
+									<thead>
+										<tr>
+											<th>UserName</th>
+											<th>Role</th>
+											<th>Image</th>
+											<th>Name</th>
+											<th>Email</th>
+											<th>Address</th>
+											<th>Phone</th>
+											<th>Activated</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th>UserName</th>
+											<th>Role</th>
+											<th>Image</th>
+											<th>Name</th>
+											<th>Email</th>
+											<th>Address</th>
+											<th>Phone</th>
+											<th>Activated</th>
+											<th>Action</th>
+										</tr>
+									</tfoot>
+									<tbody>
+										<tr th:each="item :${users}">
+											<td th:text="${item.UserName}"></td>
+											<td th:text="${item.role}"></td>
+											<td><img class="w-50" alt="Hinh anh"
+												th:src="${item.image}"></td>
+											<td th:text="${item.name}"></td>
+											<td th:text="${item.email}"></td>
+											<td th:text="${item.address}"></td>
+											<td th:text="${item.phone}"></td>
+											<td th:text="${item.Activated}"></td>
+											<td><a th:href="@{/SpaceShope/admin/account/del/{id}(id=${item.UserName})}" class="btn btn-danger"> <i
+													class="fa-solid fa-trash"></i>
+											</a> <a th:href="@{/SpaceShope/admin/account/edit?(id=${item.UserName})}" class="btn btn-warning"> <i
+													class="fa fa-pencil"></i>
+											</a></td>
+										</tr>
 
-                </div>
-                <!-- /.container-fluid -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="d-flex justify-content-center">
+						<nav aria-label="Page navigation example">
+						<ul class="pagination">
+							<li class="page-item"><a class="page-link" th:href="@{/SpaceShope/admin/account?(p=0)}">First</a></li>
+							<li class="page-item"><a class="page-link" th:href="@{/SpaceShope/admin/account?(p=${users.number>0?users.number-1:0})}">Previous</a></li>
+							<li class="page-item"><a class="page-link" th:href="@{/SpaceShope/admin/account?(p=${users.number+1})}">Next</a></li>
+							<li class="page-item"><a class="page-link" th:href="@{/SpaceShope/admin/account?(p=${users.totalPages-1})}">Last</a></li>
+						</ul>
+					</nav>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
 
-            </div>
-            <!-- End of Main Content -->
+			</div>
+			<!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+			<!-- Footer -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; Your Website 2020</span>
+					</div>
+				</div>
+			</footer>
+			<!-- End of Footer -->
 
-        </div>
-        <!-- End of Content Wrapper -->
+		</div>
+		<!-- End of Content Wrapper -->
 
-    </div>
-    
-    <!-- The Modal -->
+	</div>
+
+	<!-- The Modal -->
 	<div class="modal fade" id="myModal">
-		<div class="modal-dialog"  style="padding:10px">
+		<div class="modal-dialog" style="padding: 10px">
 			<div class="modal-content">
 
 				<header class="head-form my-2">
@@ -308,17 +314,18 @@
 				</div> -->
 
 				<!-- Modal body -->
-				<div class="modal-body">
+				<div class="modal-body p-2">
 
-					<form role="form">
+					<form th:action="@{/SpaceShope/admin/account/add}"
+						th:object="${user}" th:method="post" role="form">
 
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-user"></i></span>
 								</div>
-								<input type="text" name="tk" id="tknv" class="form-control input-sm"
-									placeholder="Tài khoản">
+								<input type="text" th:name="UserName" id="UserName"
+									class="form-control input-sm" placeholder="UserName">
 							</div>
 
 							<span class="sp-thongbao" id="tbTKNV"></span>
@@ -327,132 +334,170 @@
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-address-book"></i></span>
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
 								</div>
-								<input type="name" name="name" id="name" class="form-control input-sm"
-									placeholder="Họ và tên">
+								<input type="Password" th:name="Password" id="Password"
+									class="form-control input-sm" placeholder="Password">
 							</div>
 							<span class="sp-thongbao" id="tbTen"></span>
 						</div>
-
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input type="text" th:name="Role" id="Role"
+									class="form-control input-sm" placeholder="Role">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input type="text" th:name="Activated" id="Activated"
+									class="form-control input-sm" placeholder="Activated">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input type="text" th:name="Image" id="Image"
+									class="form-control input-sm" placeholder="Image">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input type="text" th:name="Name" id="Name"
+									class="form-control input-sm" placeholder="Name">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input type="text" th:name="Address" id="Address"
+									class="form-control input-sm" placeholder="Address">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fa fa-address-book"></i></span>
+								</div>
+								<input type="text" th:name="Phone" id="Phone"
+									class="form-control input-sm" placeholder="Phone">
+							</div>
+							<span class="sp-thongbao" id="tbTen"></span>
+						</div>
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-envelope"></i></span>
 								</div>
-								<input type="email" name="email" id="email" class="form-control input-sm"
-									placeholder="Email">
+								<input type="email" th:name="email" id="email"
+									class="form-control input-sm" placeholder="Email">
 							</div>
 
 							<span class="sp-thongbao" id="tbEmail"></span>
 						</div>
 
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-key"></i></span>
-								</div>
-								<input type="password" name="password" id="password" class="form-control input-sm"
-									placeholder="Mật khẩu">
-							</div>
-							<span class="sp-thongbao" id="tbMatKhau"></span>
-						</div>
 
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-calendar"></i></span>
 								</div>
-								<input type="text" name="ngaylam" id="datepicker" class="form-control"
-									placeholder="Ngày làm">
+								<input type="text" th:name="ZipCode" id="ZipCode"
+									class="form-control" placeholder="ZipCode">
 							</div>
 
 							<span class="sp-thongbao" id="tbNgay"></span>
 						</div>
-						
+
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-money" aria-hidden="true"></i></span>
+									<span class="input-group-text"><i class="fa fa-money"
+										aria-hidden="true"></i></span>
 								</div>
-								<input type="text" name="luongCB" id="luongCB" class="form-control input-sm"
-									placeholder="Lương cơ bản">
+								<input type="text" th:name="Intimately" id="Intimately"
+									class="form-control input-sm" placeholder="Intimately">
 							</div>
 							<span class="sp-thongbao" id="tbLuongCB"></span>
 						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-briefcase"></i></span>
-								</div>
-								<select class="form-control" id="chucvu">
-									<option>Chọn chức vụ</option>
-									<option value="Sếp">Sếp</option>
-									<option value="Trưởng phòng">Trưởng phòng</option>
-									<option value="Nhân viên">Nhân viên</option>
-								</select>
-							</div>
-
-							<span class="sp-thongbao" id="tbChucVu"></span>
-						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-								</div>
-								<input type="text" name="gioLam" id="gioLam" class="form-control input-sm"
-									placeholder="Giờ làm">
-							</div>
-							<span class="sp-thongbao" id="tbGiolam"></span>
+						<div class="modal-footer" id="modal-footer">
+							<button id="btnThemNV" class="btn btn-success">Thêm
+								người dùng</button>
+							<button id="btnDong" type="button" class="btn btn-danger"
+								data-dismiss="modal">Đóng</button>
 						</div>
 
 					</form>
 				</div>
 
 				<!-- Modal footer -->
-				<div class="modal-footer" id="modal-footer">
-					<button id="btnThemNV" type="button" class="btn btn-success">Thêm người dùng</button>
-					<button id="btnCapNhat" type="button" class="btn btn-success">Cập nhật</button>
-					<button id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-				</div>
+
 
 			</div>
 		</div>
 	</div>
-    <!-- End of Page Wrapper -->
+	<!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready
+					to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
-        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
+	<!-- Bootstrap core JavaScript-->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+		integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
 
-    
+
 
 </body>
 

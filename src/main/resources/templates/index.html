@@ -52,7 +52,7 @@
                 </form>
             </div>
             <div class="col-lg-4 col-6 text-right">
-                <p class="m-0">Customer Service</p>
+                <p class="m-0" th:text="#{header.customer}"></p>
                 <h5 class="m-0">+012 345 6789</h5>
             </div>
         </div>
@@ -80,9 +80,9 @@
                             <img class="position-absolute w-100 h-100" src="/img/carousel-1.jpg" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown" th:text="#{slide.men}"></h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn" th:text="#{slide.mencontent}"></p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#" th:text="#{slide.shopnow}"></a>
                                 </div>
                             </div>
                         </div>
@@ -90,9 +90,9 @@
                             <img class="position-absolute w-100 h-100" src="/img/carousel-2.jpg" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Women Fashion</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown" th:text="#{slide.woment}"></h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn" th:text="#{slide.womentcontent}"></p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#" th:text="#{slide.shopnow}"></a>
                                 </div>
                             </div>
                         </div>
@@ -100,9 +100,9 @@
                             <img class="position-absolute w-100 h-100" src="/img/carousel-3.jpg" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kids Fashion</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown" th:text="#{slide.baby}"></h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn" th:text="#{slide.babycontent}"></p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#" th:text="#{slide.shopnow}"></a>
                                 </div>
                             </div>
                         </div>
@@ -113,17 +113,17 @@
                 <div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="/img/offer-1.jpg" alt="">
                     <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                        <h6 class="text-white text-uppercase" th:text="#{aside.save} + ' ' + '20%'" > </h6>
+                        <h3 class="text-white mb-3" th:text="#{aside.special}"></h3>
+                        <a href="" class="btn btn-primary" th:text="#{slide.shopnow}"></a>
                     </div>
                 </div>
                 <div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="/img/offer-2.jpg" alt="">
                     <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                        <h6 class="text-white text-uppercase" th:text="#{aside.save}+ ' ' + '20%'"></h6>
+                        <h3 class="text-white mb-3" th:text="#{aside.special}"></h3>
+                        <a href="" class="btn btn-primary" th:text="#{slide.shopnow}"></a>
                     </div>
                 </div>
             </div>
@@ -138,25 +138,25 @@
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
-                    <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+                    <h5 class="font-weight-semi-bold m-0" th:text="#{ser.quality}"></h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
-                    <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+                    <h5 class="font-weight-semi-bold m-0" th:text="#{ser.free}"></h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
-                    <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+                    <h5 class="font-weight-semi-bold m-0" th:text="#{ser.day}"></h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
                     <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
-                    <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+                    <h5 class="font-weight-semi-bold m-0" th:text="#{ser.support}"></h5>
                 </div>
             </div>
         </div>
@@ -166,7 +166,7 @@
 
     <!-- Categories Start -->
     <div class="container-fluid pt-5">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Categories</span></h2>
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3" th:text="#{categories.cate}"></span></h2>
         <div class="row px-xl-5 pb-3">
             <div th:each="item : ${categories}" class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <a class="text-decoration-none" th:href="@{/SpaceShope/category/{id} (id = ${item[0]})}">
@@ -176,7 +176,7 @@
                         </div>
                         <div class="flex-fill pl-3">
                             <h6 th:text="${item[1]}"></h6>
-                            <small class="text-body" th:text="${item[2]} +' Product'"></small>
+                            <small class="text-body">[[${item[2]} + ' ' + #{categories.product}]]</small>
                         </div>
                     </div>
                 </a>
@@ -188,7 +188,7 @@
 
     <!-- Products Start -->
     <div class="container-fluid pt-5 pb-3">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured Products</span></h2>
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3" th:text="#{fea.title}"></span></h2>
         <div class="row px-xl-5">
             <div th:each="item : ${products.content}" class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="product-item bg-light mb-4">
@@ -223,19 +223,19 @@
            	<nav class="m-auto" aria-label="Page navigation example">
 			    <ul class="pagination justify-content-center">
 			        <li th:class="${products.number} <= 0 ? 'page-item disabled' : ''">
-			            <a class="page-link"  th:href="@{/SpaceShope/Home(page=0)}" th:text="First"></a>
+			            <a class="page-link"  th:href="@{/SpaceShope/Home(page=0)}" th:text="#{page.first}"></a>
 			        </li>
 			        <li th:class="${products.number} <= 0 ? 'page-item disabled' : ''">
-			            <a class="page-link" th:href="@{/SpaceShope/Home(page=${products.number - 1})}" th:text="Previous"></a>
+			            <a class="page-link" th:href="@{/SpaceShope/Home(page=${products.number - 1})}" th:text="#{page.prev}"></a>
 			        </li>
 			        <li th:each="item : ${#numbers.sequence(0, products.totalPages-1)}" th:class="${item} == ${products.number} ? 'page-item active' : ''">
 			            <a class="page-link" th:href="@{/SpaceShope/Home(page=${item})}" th:text="${item+1}"></a>
 			        </li>
 			        <li th:class="${products.number} >= ${products.totalPages} - 1 ? 'page-item disabled' : ''">
-			            <a class="page-link" th:href="@{/SpaceShope/Home(page=${products.number + 1})}" th:text="Next"></a>
+			            <a class="page-link" th:href="@{/SpaceShope/Home(page=${products.number + 1})}" th:text="#{page.next}"></a>
 			        </li>
 			        <li th:class="${products.number} >= ${products.totalPages} - 1 ? 'page-item disabled' : ''">
-			            <a class="page-link" th:href="@{/SpaceShope/Home(page=${products.totalPages - 1})}" th:text="Last"></a>
+			            <a class="page-link" th:href="@{/SpaceShope/Home(page=${products.totalPages - 1})}" th:text="#{page.last}"></a>
 			        </li>
 			    </ul>
 			</nav>
@@ -252,9 +252,9 @@
                 <div class="product-offer mb-30" style="height: 300px;">
                     <img class="img-fluid" src="/img/offer-1.jpg" alt="">
                     <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                        <h6 class="text-white text-uppercase" th:text="#{aside.save}+ ' ' + '20%'"></h6>
+                        <h3 class="text-white mb-3" th:text="#{aside.special}"></h3>
+                        <a href="" class="btn btn-primary" th:text="#{slide.shopnow}"></a>
                     </div>
                 </div>
             </div>
@@ -262,9 +262,9 @@
                 <div class="product-offer mb-30" style="height: 300px;">
                     <img class="img-fluid" src="/img/offer-2.jpg" alt="">
                     <div class="offer-text">
-                        <h6 class="text-white text-uppercase">Save 20%</h6>
-                        <h3 class="text-white mb-3">Special Offer</h3>
-                        <a href="" class="btn btn-primary">Shop Now</a>
+                        <h6 class="text-white text-uppercase" th:text="#{aside.save}+ ' ' + '20%'"></h6>
+                        <h3 class="text-white mb-3" th:text="#{aside.special}"></h3>
+                        <a href="" class="btn btn-primary" th:text="#{slide.shopnow}">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -275,7 +275,7 @@
 
     <!-- Products Start -->
     <div class="container-fluid pt-5 pb-3">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Recent Products</span></h2>
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3" th:text="#{recent.title}"></span></h2>
         <div class="row px-xl-5">
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="product-item bg-light mb-4">

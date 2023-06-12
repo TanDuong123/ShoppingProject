@@ -8,10 +8,10 @@
 	<div class="row bg-secondary py-1 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center h-100">
-                    <a class="text-body mr-3" href="">About</a>
-                    <a class="text-body mr-3" href="">Contact</a>
-                    <a class="text-body mr-3" href="">Help</a>
-                    <a class="text-body mr-3" href="">FAQs</a>
+                    <a class="text-body mr-3" href="" th:text="#{header.about}"></a>
+                    <a class="text-body mr-3" href="" th:text="#{header.contact}"></a>
+                    <a class="text-body mr-3" href="" th:text="#{header.help}"></a>
+                    <a class="text-body mr-3" href="" th:text="#{header.faqs}"></a>
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
@@ -20,41 +20,40 @@
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" th:text="${session.user != null ? session.user.UserName : 'My Account'}" ></button>
                         <div class="dropdown-menu dropdown-menu-right">
                         	<a href="/account/logout">
-                        		<button class="dropdown-item" type="button">Log Out</button>
+                        		<button class="dropdown-item" type="button" th:text="#{header.logout}">Log Out</button>
                        		</a>
                             <a href="/account/resetpass">
-                            	<button class="dropdown-item" type="button">Reset Password</button>
+                            	<button class="dropdown-item" type="button" th:text="#{header.resetPass}">Reset Password</button>
                             </a>
-                            
+                            <a th:if="${session.user.Role}" href="/SpaceShope/admin/index">
+                            	<button class="dropdown-item" type="button" th:text="#{header.admin}">Admin Form</button>
+                            </a>
                         </div>
                     </div>
                     <div th:unless="${session.user}" class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" th:text="#{header.account}"></button>
                         <div class="dropdown-menu dropdown-menu-right">
                         	<a href="/account/index">
-                        		<button class="dropdown-item" type="button">Sign in</button>
+                        		<button class="dropdown-item" type="button" th:text="#{header.signin}"></button>
                        		</a>
-                            <a href="/account/index">
-                            	<button class="dropdown-item" type="button">Sign up</button>
+                            <a href="/account/registerIndex">
+                            	<button class="dropdown-item" type="button" th:text="#{header.signup}"></button>
                             </a>
                             
                         </div>
                     </div>
-                    <div class="btn-group mx-2">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">EUR</button>
-                            <button class="dropdown-item" type="button">GBP</button>
-                            <button class="dropdown-item" type="button">CAD</button>
-                        </div>
-                    </div>
+               
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">EN</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">FR</button>
-                            <button class="dropdown-item" type="button">AR</button>
-                            <button class="dropdown-item" type="button">RU</button>
-                        </div>
+                            <a th:href="@{/SpaceShope/changelanguage(lang='vi')}">
+                            	<img alt="" src="/img/coVietNam.png" width="40px">
+                            </a>
+                            <a class="mx-2" th:href="@{/SpaceShope/changelanguage(lang='en')}">
+                            	<img alt="" src="/img/coNuocAnh.png" width="40px">
+                            </a>
+                            <a th:href="@{/SpaceShope/changelanguage(lang='china')}">
+                            	<img alt="" src="/img/coChina.png" width="40px">
+                            </a>
+                            
                     </div>
                 </div>
                 <div class="d-inline-flex align-items-center d-block d-lg-none">

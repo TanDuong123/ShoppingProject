@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- <div id="registerSuccessMessage" th:value="${errorRegister}" style="display: none;">
+	    Register success
+	</div> -->
     <div class="container" id="container">
         <!-- <div class="form-container sign-up-container">
             <form>
@@ -30,9 +33,9 @@
             <form method="post">
                 <h1>Sign in</h1>
                 <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social" style="background: rgba(255, 255, 255);"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social" style="background: rgba(255, 255, 255);"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social" style="background: rgba(255, 255, 255);"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your account</span>
                 <input type="text" th:value="${param.username}" th:name="username" placeholder="UserName" />
@@ -68,5 +71,20 @@
         </p>
     </footer>
     <script src="/js/login.js"></script>
+    <!-- <script>
+	    $(document).ready(function() {
+	        var registerSuccess = $('#registerSuccessMessage').val();
+	
+	        if (registerSuccess) {
+	            // Hiển thị thông báo "Register success"
+	            $('#registerSuccessMessage').fadeIn();
+	
+	            // Tự động ẩn thông báo sau 2 giây
+	            setTimeout(function() {
+	                $('#registerSuccessMessage').fadeOut();
+	            }, 2000);
+	        }
+	    });
+	</script> -->
 </body>
 </html>

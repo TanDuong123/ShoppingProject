@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 @Configuration
 public class InterConfig implements WebMvcConfigurer{
@@ -14,11 +15,11 @@ public class InterConfig implements WebMvcConfigurer{
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(auth)
-		.addPathPatterns("/account/edit","account/edit/**","account/changepassword","/admin/**")
-		.excludePathPatterns("/assets/**","/admin/home/index");
+		.addPathPatterns("/SpaceShope/admin/**")
+		.excludePathPatterns("/assets/**");
 		
 		registry.addInterceptor(user)
-		.addPathPatterns("/SpaceShope/cart","/SpaceShope/checkout")
+		.addPathPatterns("/SpaceShope/cart","/SpaceShope/checkout","/SpaceShope/order/**")
 		.excludePathPatterns("/assets/**");
 	}
 }

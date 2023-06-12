@@ -126,7 +126,7 @@ select *from carts
 select*from cart_items
 select *from bills
 select *from bill_details
-delete users where user_name='thanhtu123'
+delete users where user_name='tanduong12'
 drop table cart_items
 insert into cart_items values
 (2,1,2),
@@ -143,7 +143,7 @@ INSERT into bills values
 
 
 
-insert into bill_details values
+insert into bill_details(bill_detail_id, bill_id, address,create_date,quantity) values
 (1,'P001',2,N'123 To Ky quan 12','05-12-2023',1),
 (2,'P003',3,N'1 Tô ký Quận 12','05-15-2023',1),
 (2,'P002',2,N'1 Tô ký Quận 12','05-15-2023',1),

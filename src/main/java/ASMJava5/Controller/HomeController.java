@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -23,22 +24,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import ASMJava5.Dao.BillDAO;
+import ASMJava5.Dao.BillDetailDAO;
 import ASMJava5.Dao.CartDAO;
 import ASMJava5.Dao.CartItemDAO;
 import ASMJava5.Dao.CategoryDAO;
 import ASMJava5.Dao.ProductDAO;
 import ASMJava5.Dao.ProductVariantDAO;
 import ASMJava5.Dao.UserDAO;
+import ASMJava5.Model.Bill;
+import ASMJava5.Model.BillDetail;
 import ASMJava5.Model.Cart;
 import ASMJava5.Model.CartItem;
 import ASMJava5.Model.Category;
-import ASMJava5.Model.MailInfor;
 import ASMJava5.Model.Product;
 import ASMJava5.Model.ProductVariant;
 import ASMJava5.Model.User;
-import ASMJava5.Service.MailerServiceImpl;
 import ASMJava5.Service.SessionService;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/SpaceShope/")
@@ -57,6 +62,11 @@ public class HomeController {
 	CartItemDAO cartItemDao;
 	@Autowired
 	UserDAO userDao;
+	@Autowired
+	BillDAO billDao;
+	@Autowired
+	BillDetailDAO billDetailDao;
+	
 	@GetMapping("Home")
 	public String home(Model model, @RequestParam("page") Optional<Integer> page) {
 		Pageable pageable=PageRequest.of(page.orElse(0), 8);
@@ -148,11 +158,15 @@ public class HomeController {
 			cartItem.setCart(checkUserInCart);
 			cartItem.setQuantity(quantity);
 			cartItem.setCartItem(ProductVariantDao.findOneById(productVariantId));
-			cartItemDao.save(cartItem);
 			int amount= cartItemDao.getAmount(username);
 			session.setAttribute("amount", amount);
+			cartItemDao.save(cartItem);
+			List<Object[]> listCart= cartItemDao.getAllInforWithUserName(username);
+			double total=cartItemDao.getToTal(username); 
+			model.addAttribute("listCart", listCart);
+			model.addAttribute("total", total);
 		}
-		return "cart";
+		return "redirect:/SpaceShope/cart";
 	}
 	
 	@GetMapping("cart")
@@ -185,29 +199,63 @@ public class HomeController {
 		model.addAttribute("inforUser", inforUser);
 		return "checkout";
 	}
-	@Autowired
-	MailerServiceImpl mailer;
 	
 	@GetMapping("order")
-	public String order(){
-		
+	public String order(Model model, @RequestParam("page") Optional<Integer> page){
+		Pageable pageable= PageRequest.of(page.orElse(0),5);
+		User user=(User) session.getAttribute("user");
+		String username= user.getUserName();
+		Page<Object[]> listBill= billDetailDao.findBillByUserName(username,pageable);
+		model.addAttribute("list", listBill);
+		Object[] item= {"","","","","","","",""} ;
+		model.addAttribute("item", item);
 		return "order";
 	}
-	//admin
-	@GetMapping("/admin/index")
-	public String adminIndex() {
-		return "admin/index";
+	@GetMapping("order/create")
+	public String createOrder(
+			Model model,
+			@RequestParam("name") String name,
+			@RequestParam("phone") String phone,
+			@RequestParam("address") String address ) {
+		
+		System.out.println("infor"+name+phone+address);
+		//Save bill
+//		User user= (User) session.getAttribute("user");
+//		Bill bill=billDao.findBillByUserName(user.getUserName());
+//		if(bill==null) {
+//			bill= new Bill();
+//			bill.setBill(user);
+//			billDao.save(bill);
+//		}else {
+//			//Save bill detail
+//			BillDetail billdetail= new BillDetail();
+//			billdetail.setAddress(address);
+//			billdetail.setBillDetail(bill);
+//			billdetail.setNumberPhoneBill(phone);
+//			billdetail.setPrice(total);
+//			billdetail.setState(false);
+//			billDetailDao.save(billdetail);
+//			//delete product in cart
+//			List<Object[]> listCart= cartItemDao.getAllInforWithUserName(user.getUserName());
+//			for(Object[] cartitem:listCart) {
+//				cartItemDao.deleteById((Long) cartitem[4]);
+//			}
+//			session.setAttribute("amount", 0);
+//		}
+		return "checkout";
 	}
-	@GetMapping("/admin/account")
-	public String adminaccount() {
-		return "admin/account";
-	}
-	@GetMapping("/admin/products")
-	public String adminProduct() {
-		return "admin/products";
-	}
-	@GetMapping("/admin/carts")
-	public String adminCarts() {
-		return "admin/carts";
-	}
+	@GetMapping("/changelanguage")
+	  public String changeLanguage(@RequestParam("lang") String lang, HttpServletRequest request, HttpServletResponse response) {
+		// Đặt ngôn ngữ mới vào session
+        request.getSession().setAttribute("lang", lang);
+        
+        // Đặt ngôn ngữ mới vào cookie
+        Cookie cookie = new Cookie("lang", lang);
+        response.addCookie(cookie);
+        
+        // Chuyển hướng ngược lại trang trước đó
+        String referer = request.getHeader("Referer");
+        return "redirect:" + referer;
+    }
+	
 }

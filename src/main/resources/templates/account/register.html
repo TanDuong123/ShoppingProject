@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- <div id="registerSuccessMessage" th:value="${registerSuccess}" style="display: none;">
+	    Register success
+	</div> -->
     <div class="container" id="container">
         <div class="form-container sign-in-container">
             <form method="post">
@@ -68,5 +71,20 @@
             <a target="_blank" href="https://github.com/TanDuong123/ShoppingProject">Blue Tigers Team</a>
         </p>
     </footer>
+    <!-- <script>
+	    $(document).ready(function() {
+	        var registerSuccess = $('#registerSuccessMessage').val();
+	
+	        if (registerSuccess) {
+	            // Hiển thị thông báo "Register success"
+	            $('#registerSuccessMessage').fadeIn();
+	
+	            // Tự động ẩn thông báo sau 2 giây
+	            setTimeout(function() {
+	                $('#registerSuccessMessage').fadeOut();
+	            }, 2000);
+	        }
+	    });
+	</script> -->
 </body>
 </html>
