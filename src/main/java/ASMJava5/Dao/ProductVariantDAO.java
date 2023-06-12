@@ -14,4 +14,7 @@ public interface ProductVariantDAO extends JpaRepository<ProductVariant, Long>{
 	
 	@Query("Select p From ProductVariant p Where p.ProductVariantId = ?1")
 	ProductVariant findOneById(Long productVariantId);
+	
+	@Query("select p from ProductVariant p where p.ProductVariant.ProductId =?1")
+	ProductVariant findbyProductId(String productId); 
 }

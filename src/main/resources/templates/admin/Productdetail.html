@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>SB Admin 2 - Detail</title>
 
     <!-- Custom fonts for this template -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -118,15 +118,26 @@
 
            
 
-                <form th:action="@{/SpaceShope/admin/account/edit}"
+                <form class="mt-5 w-50" th:action="@{/SpaceShope/admin/product/detail}"
 						th:object="${user}" th:method="post" role="form">
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-user"></i></span>
 								</div>
-								<input th:value="${UserName}" type="text" th:name="UserName" id="UserName"
-									class="form-control input-sm" placeholder="UserName">
+								<input th:value="${id}" type="text" th:name="id" id="id"
+									class="form-control input-sm" placeholder="id">
+							</div>
+
+							<span class="sp-thongbao" id="tbTKNV"></span>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fa fa-user"></i></span>
+								</div>
+								<input th:value="${productid}" type="text" th:name="productid" id="productid"
+									class="form-control input-sm" placeholder="productid">
 							</div>
 
 							<span class="sp-thongbao" id="tbTKNV"></span>
@@ -138,8 +149,8 @@
 									<span class="input-group-text"><i
 										class="fa fa-address-book"></i></span>
 								</div>
-								<input th:value="${Password}" type="Password" th:name="Password" id="Password"
-									class="form-control input-sm" placeholder="Password">
+								<input th:value="${color}" type="text" th:name="color" id="color"
+									class="form-control input-sm" placeholder="color">
 							</div>
 							<span class="sp-thongbao" id="tbTen"></span>
 						</div>
@@ -149,8 +160,8 @@
 									<span class="input-group-text"><i
 										class="fa fa-address-book"></i></span>
 								</div>
-								<input th:value="${Role}" type="text" th:name="Role" id="Role"
-									class="form-control input-sm" placeholder="Role">
+								<input th:value="${size}" type="text" th:name="size" id="size"
+									class="form-control input-sm" placeholder="size">
 							</div>
 							<span class="sp-thongbao" id="tbTen"></span>
 						</div>
@@ -160,96 +171,15 @@
 									<span class="input-group-text"><i
 										class="fa fa-address-book"></i></span>
 								</div>
-								<input th:value="${Activated}" type="text" th:name="Activated" id="Activated"
-									class="form-control input-sm" placeholder="Activated">
+								<input th:value="${quantity}" type="text" th:name="quantity" id="quantity"
+									class="form-control input-sm" placeholder="quantity">
 							</div>
 							<span class="sp-thongbao" id="tbTen"></span>
 						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i
-										class="fa fa-address-book"></i></span>
-								</div>
-								<input type="text" th:value="${Image}" th:name="Image" id="Image"
-									class="form-control input-sm" placeholder="Image">
-							</div>
-							<span class="sp-thongbao" id="tbTen"></span>
-						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i
-										class="fa fa-address-book"></i></span>
-								</div>
-								<input th:value="${Name}" type="text" th:name="Name" id="Name"
-									class="form-control input-sm" placeholder="Name">
-							</div>
-							<span class="sp-thongbao" id="tbTen"></span>
-						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i
-										class="fa fa-address-book"></i></span>
-								</div>
-								<input th:value="${Address}" type="text" th:name="Address" id="Address"
-									class="form-control input-sm" placeholder="Address">
-							</div>
-							<span class="sp-thongbao" id="tbTen"></span>
-						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i
-										class="fa fa-address-book"></i></span>
-								</div>
-								<input th:value="${Phone}" type="text" th:name="Phone" id="Phone"
-									class="form-control input-sm" placeholder="Phone">
-							</div>
-							<span class="sp-thongbao" id="tbTen"></span>
-						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-envelope"></i></span>
-								</div>
-								<input th:value="${email}" type="email" th:name="email" id="email"
-									class="form-control input-sm" placeholder="Email">
-							</div>
-
-							<span class="sp-thongbao" id="tbEmail"></span>
-						</div>
-
-
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-calendar"></i></span>
-								</div>
-								<input th:value="${ZipCode}" type="text" th:name="ZipCode" id="ZipCode"
-									class="form-control" placeholder="ZipCode">
-							</div>
-
-							<span class="sp-thongbao" id="tbNgay"></span>
-						</div>
-
-						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-money"
-										aria-hidden="true"></i></span>
-								</div>
-								<input th:value="${Intimately}" type="text" th:name="Intimately" id="Intimately"
-									class="form-control input-sm" placeholder="Intimately">
-							</div>
-							<span class="sp-thongbao" id="tbLuongCB"></span>
-						</div>
+						
 						<div class="modal-footer" id="modal-footer">
-							<button id="btnThemNV" class="btn btn-success">Thêm
-								người dùng</button>
-							<button id="btnDong" type="button" class="btn btn-danger"
-								data-dismiss="modal">Đóng</button>
+							<button id="btnThemNV" class="btn btn-success">Cập nhật</button>
+							
 						</div>
 
 					</form>

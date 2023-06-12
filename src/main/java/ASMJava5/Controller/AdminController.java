@@ -20,6 +20,7 @@ import ASMJava5.Dao.ProductDAO;
 import ASMJava5.Dao.ProductVariantDAO;
 import ASMJava5.Dao.UserDAO;
 import ASMJava5.Model.Product;
+import ASMJava5.Model.ProductVariant;
 import ASMJava5.Model.User;
 import ASMJava5.Service.ProductService;
 import ASMJava5.Service.SessionService;
@@ -181,28 +182,39 @@ public class AdminController {
 			return "admin/products";
 		}
 		@PostMapping("/admin/products/add")
-		public String create(Model model,
-				@RequestParam("productid") String productid,
-				@RequestParam("name") String name,
-				@RequestParam("image") String image,
-				@RequestParam("Category") String category,
-				@RequestParam("price") Double price,
-				@RequestParam("available") Boolean available,
-				@RequestParam("decription") String decription
-				) {
+		public String create(Model model, @RequestParam("productid") String productid, @RequestParam("name") String name,
+				@RequestParam("image") String image, @RequestParam("Category") String category,
+				@RequestParam("price") Double price, @RequestParam("available") Boolean available,
+				@RequestParam("decription") String decription) {
 			Product product = new Product();
-			model.addAttribute("product",product);
+			model.addAttribute("product", product);
 			productService.createProduct(productid, name, image, price, category, decription, available);
 			System.out.println(productid);
 			List<Product> prod = ProductDao.findAll();
-			model.addAttribute("PRODUCTS",prod);
+			model.addAttribute("PRODUCTS", prod);
+
+			// create product variants
+			Product productidd = ProductDao.findById(productid).orElse(null);
+			if (productid == null) {
+				// Handle error when category is not found
+			}
+
+			ProductVariant productvariant = new ProductVariant();
+			productvariant.setSize(null);
+			productvariant.setColor(null);
+			productvariant.setQuantity(null);
+			productvariant.setProductVariant(productidd);
+			ProductVariantDao.save(productvariant);
 			return "admin/products";
 		}
+
 		@GetMapping("/admin/products/del/{id}")
-		public String delProduct(Model model,@PathVariable("id") String id) {
+		public String delProduct(Model model, @PathVariable("id") String id) {
+			ProductVariant prodva = ProductVariantDao.findbyProductId(id);
+			ProductVariantDao.deleteById(prodva.getProductVariantId());
 			ProductDao.deleteById(id);
 			List<Product> prod = ProductDao.findAll();
-			model.addAttribute("PRODUCTS",prod);
+			model.addAttribute("PRODUCTS", prod);
 			return "admin/products";
 		}
 		@GetMapping("/admin/products/edit")
@@ -250,9 +262,40 @@ public class AdminController {
 
 //		PRODUCT DETAIL
 		@RequestMapping("/admin/product/detail")
-		public String detail() {
-			
+		public String detail(Model model) {
+			String id = request.getParameter("id");
+//			Optional<Product> productOptional = ProductDao.findById(id);
+			ProductVariant prod = ProductVariantDao.findbyProductId(id);
+			model.addAttribute("productid",prod.getProductVariant().getProductId());
+			model.addAttribute("color",prod.getColor());
+			model.addAttribute("size",prod.getSize());
+			model.addAttribute("quantity",prod.getQuantity());
+
+			model.addAttribute("id",prod.getProductVariantId());
+//			System.out.println(prod.getProductVariant().getProductId());
 			return "/admin/Productdetail";
+		}
+		@PostMapping("/admin/product/detail")
+		public String updateDetail(Model model,
+				@RequestParam("productid") String productid,
+				@RequestParam("color") String color,
+				@RequestParam("size") String size,
+				@RequestParam("quantity") Integer quantity,
+				@RequestParam("id") Long id) {
+			try {
+				Product productidd = ProductDao.findById(productid).orElse(null);
+				ProductVariant productvariant = new ProductVariant();
+				productvariant.setSize(size);
+				productvariant.setColor(color);
+				productvariant.setProductVariantId(id);
+				productvariant.setQuantity(quantity);
+				productvariant.setProductVariant(productidd);
+//				System.out.println(productvariant.getColor());
+				ProductVariantDao.save(productvariant);
+			}catch (Exception e) { 
+				// TODO: handle exception
+			}
+			return "redirect:/SpaceShope/admin/products";
 		}
 		
 		@GetMapping("/admin/carts")
